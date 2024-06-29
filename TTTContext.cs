@@ -16,7 +16,7 @@ namespace TicTacToe.Multiplayer
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.EnableSensitiveDataLogging();
-			optionsBuilder.UseMySQL("Server=mysql-210770ab-techstore.b.aivencloud.com;Database=ttt;Uid=avnadmin;Pwd=AVNS_ECNjUML_9rCSuGwr_PA;Port=15039");
+			optionsBuilder.UseMySQL("Server=mysql-210770ab-techstore.b.aivencloud.com;Database=ttt;Uid=avnadmin;Pwd=AVNS_ECNjUML_9rCSuGwr_PA;Port=15039"); //Exposed for testing purposes
 			base.OnConfiguring(optionsBuilder);
 		}
 	}
