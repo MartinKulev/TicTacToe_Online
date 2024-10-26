@@ -711,6 +711,7 @@ namespace TicTacToe.Multiplayer
 				}
 			}
 
+			Console.ReadKey();
 			if (context.Players.Contains(player1))
 			{
 				player1 = context.Players.First(p => p.ID == 1);
