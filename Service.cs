@@ -20,35 +20,30 @@ namespace TicTacToe.Multiplayer
 			char symbol = ' ';
 			bool first;
 			bool clear = true;
+            Box box1 = new Box(1, ' ');
+            Box box2 = new Box(2, ' ');
+            Box box3 = new Box(3, ' ');
+            Box box4 = new Box(4, ' ');
+            Box box5 = new Box(5, ' ');
+            Box box6 = new Box(6, ' ');
+            Box box7 = new Box(7, ' ');
+            Box box8 = new Box(8, ' ');
+            Box box9 = new Box(9, ' ');
 
-		    Box box1 = new Box(1, ' ');
-			Box box2 = new Box(2, ' ');
-			Box box3 = new Box(3, ' ');
-			Box box4 = new Box(4, ' ');
-			Box box5 = new Box(5, ' ');
-			Box box6 = new Box(6, ' ');
-			Box box7 = new Box(7, ' ');
-			Box box8 = new Box(8, ' ');
-			Box box9 = new Box(9, ' ');
-			context.Boxes.Update(box1);
-			context.Boxes.Update(box2);
-			context.Boxes.Update(box3);
-			context.Boxes.Update(box4);
-			context.Boxes.Update(box5);
-			context.Boxes.Update(box6);
-			context.Boxes.Update(box7);
-			context.Boxes.Update(box8);
-			context.Boxes.Update(box9);
-            //context.Boxes.Add(box1);
-            //context.Boxes.Add(box2);
-            //context.Boxes.Add(box3);
-            //context.Boxes.Add(box4);
-            //context.Boxes.Add(box5);
-            //context.Boxes.Add(box6);
-            //context.Boxes.Add(box7);
-            //context.Boxes.Add(box8);
-            //context.Boxes.Add(box9);
-            context.SaveChanges();
+            if (context.Boxes.Any(p => p.Symbol != ' '))
+			{
+                context.Players.RemoveRange(context.Players);
+                context.Boxes.Update(box1);
+                context.Boxes.Update(box2);
+                context.Boxes.Update(box3);
+                context.Boxes.Update(box4);
+                context.Boxes.Update(box5);
+                context.Boxes.Update(box6);
+                context.Boxes.Update(box7);
+                context.Boxes.Update(box8);
+                context.Boxes.Update(box9);
+                context.SaveChanges();
+            }
 
             Player player1 = new Player(1, true, false, false);
 			Player player2 = new Player(2, false, false, false);
@@ -70,7 +65,8 @@ namespace TicTacToe.Multiplayer
 			{
                 Console.WriteLine("Waiting for player 2...");
             }
-			while(!context.Players.Contains(player2)){}
+
+            while (!context.Players.Contains(player2)){}
 			Console.Clear();
 			List<char> firstRow = "│   │   │   │".ToList();
 			List<char> secondRow = "│   │   │   │".ToList();
@@ -717,7 +713,26 @@ namespace TicTacToe.Multiplayer
 				player1 = context.Players.First(p => p.ID == 1);
 				context.Players.Remove(player1);
 				context.Players.Remove(player2);
-				context.SaveChanges();
+                box1 = new Box(1, ' ');
+                box2 = new Box(2, ' ');
+                box3 = new Box(3, ' ');
+                box4 = new Box(4, ' ');
+                box5 = new Box(5, ' ');
+                box6 = new Box(6, ' ');
+                box7 = new Box(7, ' ');
+                box8 = new Box(8, ' ');
+                box9 = new Box(9, ' ');
+                context.Boxes.Update(box1);
+                context.Boxes.Update(box2);
+                context.Boxes.Update(box3);
+                context.Boxes.Update(box4);
+                context.Boxes.Update(box5);
+                context.Boxes.Update(box6);
+                context.Boxes.Update(box7);
+                context.Boxes.Update(box8);
+                context.Boxes.Update(box9);
+                context.SaveChanges();
+                context.SaveChanges();
 			}			
 		}
 	}
